@@ -3,8 +3,8 @@ function adicionar(){
     var lista = window.document.getElementById('lista')
     var valorCaixa = caixa.value
 
-    if(valorCaixa.trim() === ''){
-        window.alert('[ERROR] valor vazio')
+    if(valorCaixa === ''){
+        window.alert('[ERROR] Valor vazio')
         return
     }
 
