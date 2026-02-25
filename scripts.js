@@ -21,7 +21,9 @@ function adicionar(){
 function criarItem(texto, concluida){
     var lista = window.document.getElementById('lista')
     var item = document.createElement('li')
-    item.innerHTML = texto +
+    item.innerHTML = 
+    '<span class="texto">' + texto + '</span>' +
+    '<span onclick="editar(this)">✏️</span>' +
     '<span onclick="concluir(this)">✅</span>' +
     '<span onclick="deletar(this)">❌</span>'
     
@@ -30,6 +32,19 @@ function criarItem(texto, concluida){
     }
 
     lista.appendChild(item)
+}
+
+function editar(botao){
+    var li = botao.parentElement
+    var spanTexto = li.querySelector('.texto')
+
+    var textoAtual = spanTexto.textContent
+    var novoTexto = window.prompt('Editar tarefa', textoAtual)
+
+    if(novoTexto !== null && novoTexto.trim() !== ''){
+        spanTexto.textContent = novoTexto
+        salvaLocalStorage()
+    }
 }
 
 function concluir(botao){
