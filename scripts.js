@@ -1,15 +1,9 @@
-// Quando a página carregar
+
 window.onload = function() {
     carregarTarefas()
 }
 
-function adicionar(){
-    /* função adicionar 
-         - pega o valor da caixa
-         - validar
-         - manda criar item
-         - manda salvar
-    */    
+function adicionar(){   
     var caixa = window.document.getElementById('itaf')
     var valorCaixa = caixa.value
 
@@ -25,12 +19,6 @@ function adicionar(){
 }
 
 function criarItem(texto, concluida){
-    /* função criarItem
-        - criar o item (li)
-        - add texto
-        - add botoes
-        -aplicar classe (opcional)
-    */
     var lista = window.document.getElementById('lista')
     var item = document.createElement('li')
     item.innerHTML = texto +
@@ -55,10 +43,6 @@ function deletar(botao){
 }
 
 function salvaLocalStorage(){
-    /* função salva
-        - salvar os itens
-        - percorrer os li
-    */
     var lista = window.document.getElementById('lista')
     var itens = lista.getElementsByTagName('li')
 
@@ -74,9 +58,6 @@ function salvaLocalStorage(){
 }
 
 function carregarTarefas(){
-    /* função carregar
-        - buscar as tarefas salvas
-    */
     var tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
     for(var i = 0; i < tarefas.length; i++){
         criarItem(tarefas[i].texto, tarefas[i].concluida)
